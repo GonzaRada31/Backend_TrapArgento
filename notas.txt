@@ -1,0 +1,38 @@
+* Creamos la base de datos y las tablas
+* en la raiz del proyecto creamos dentro del proyecto (en la raiz a la altura de run.py) .env
+	- contendrá las variables de entorno o variables reservadas (NO PUBLICAS), agregamos en .GITIGNORE
+	llevan la contraseña y usuario de la base de datos
+	Variables con mayúscula y separadas con "_" 
+* crear un archivo .env.example para compartir la estructura sin completar de las variables para la conexion a la DB
+
+** En app creamos database.py para usar las variables de entorno
+	creamos las funciones para la conexion con la base de datos
+	crear funciones para cerrar la conexion
+	Las crearemos manualmente, aunq existen librerías como SQL alquimist con Flask, etc
+
+	- importamos las librerías os, mysqlconnector,g de flask, dotenv, etc
+* Cargamos las variables de entorno con load_dotenv sin usar root ya que dejaría expuestos nuestros datos
+
+* Creamos la función para la conexion con la DB get_db()
+* Creamos la función para cerrar la conexion
+* Creamos la funcion init_app para iniciar la aplicación con la DB y cuando finaliza inicia close_app para cerrar la conexion
+
+** En run.py agregamos init_app para que se ejecute
+
+----------Es todo lo necesario para la conexión con la base de datos ------------------------
+
+Ahora trabajaremos sobre models.py
+* importamos la conexión
+* Creamos un Constructor (Clase) y luego un método para traer todas las películas de la base de datos con un decorador 
+	@staticmethod // Para que pueda ejecutarse directamente llamando a la clase
+	def get_all
+	...
+
+
+
+
+
+-----------En python Anywhere
+
+d= os.path.dirname(__file__)
+os.chdir(d)
