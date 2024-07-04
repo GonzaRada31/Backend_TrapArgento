@@ -11,14 +11,24 @@ class Usuario(UserMixin, db.Model):
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(512))
 
-    def set_password(self, password):
+    def set_password(self, password):   # Función para encriptar la contraseña
         self.password_hash = generate_password_hash(password)
 
-    def check_password(self, password):
+    def check_password(self, password):    # Función para verificar la contraseña
         return check_password_hash(self.password_hash, password)
 
-    def __repr__(self):
+    def to_dict(self):  # Función para convertir el objeto en un diccionario
+        return {
+            'id': self.id,
+            'nombre': self.nombre,
+            'apellido': self.apellido,
+            'email': self.email
+        }
+    
+    def __repr__(self):     # Función para representar el objeto como string
         return f'<Usuario {self.email}>'
+    
+    
 
 # Modelo para la tabla de artistas
 class Artista(db.Model):
